@@ -21,6 +21,12 @@ class UsersTable extends Component
     #[Url('search-term')]
     public string $searchTerm="";
 
+    #[Url('sort_by')]
+    public string $sortBy="created_at";
+
+    #[Url('sort_dir')]
+    public string $sortDir="DESC";
+
     #[Url('role')]
     public  $role="";
     #[Computed()]
@@ -32,7 +38,7 @@ class UsersTable extends Component
         }
         //return User::where('name','like',"%$this->searchTerm%")->orWhere('email','like',"%$this->searchTerm%")->paginate($this->perPage);
         // sürekli orWhere demek yerine bir scope oluşturduk modelde
-        return User::search($this->searchTerm)->when($this->role != "",fn($query)=> $query->where('is_admin',$this->role) )->paginate($this->perPage);
+        return User::search($this->searchTerm)->when($this->role != "",fn($query)=> $query->where('is_admin',$this->role) )->orderBy($this->sortBy,$this->sortDir)->paginate($this->perPage);
     }
 
     public function deleteUser($uuid){
