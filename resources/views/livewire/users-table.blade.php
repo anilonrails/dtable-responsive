@@ -46,19 +46,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                name</th>
-                            <td class="px-4 py-3">email</td>
-                            <td class="px-4 py-3 text-green-500">
-                                admin</td>
-                            <td class="px-4 py-3">created_at</td>
-                            <td class="px-4 py-3">updated_at</td>
-                            <td class="px-4 py-3 flex items-center justify-end">
-                                <button class="px-3 py-1 bg-red-500 text-white rounded">X</button>
-                            </td>
-                        </tr>
+                        @foreach($this->users() as $user)
+                            <tr class="border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{$user->name}}</th>
+                                <td class="px-4 py-3">{{$user->email}}</td>
+                                <td class="px-4 py-3 text-green-500">
+                                    {{$user->getRole()}}</td>
+                                <td class="px-4 py-3">{{$user->created_at}}</td>
+                                <td class="px-4 py-3">{{$user->updated_at}}</td>
+                                <td class="px-4 py-3 flex items-center justify-end">
+                                    <button class="px-3 py-1 bg-red-500 text-white rounded">X</button>
+                                </td>
+                            </tr>
+                        @endforeach
+
 
                         </tbody>
                     </table>
