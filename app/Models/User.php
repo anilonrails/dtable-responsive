@@ -48,4 +48,8 @@ class User extends Authenticatable
         return $this->is_admin ? 'admin' : 'user';
     }
 
+    public function scopeSearch($query, $value)
+    {
+        $query->where('name','like',"%$value%")->orWhere('email','like',"%$value%");
+    }
 }
