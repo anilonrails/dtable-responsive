@@ -35,11 +35,11 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
-                            <th scope="col" class="px-4 py-3">name</th>
-                            <th scope="col" class="px-4 py-3">email</th>
-                            <th scope="col" class="px-4 py-3">Role</th>
-                            <th scope="col" class="px-4 py-3">Joined</th>
-                            <th scope="col" class="px-4 py-3">Last update</th>
+                            <th scope="col" class="px-4 py-3" wire:click="setSortBy('name')">name <span style="float: right">{!! $this->getSortIcon('name') !!}</span> </th>
+                            <th scope="col" class="px-4 py-3" wire:click="setSortBy('email')">email<span style="float: right">{!! $this->getSortIcon('email') !!}</span> </th>
+                            <th scope="col" class="px-4 py-3" wire:click="setSortBy('is_admin')">Role<span style="float: right">{!! $this->getSortIcon('is_admin') !!}</span> </th>
+                            <th scope="col" class="px-4 py-3" wire:click="setSortBy('created_at')">Joined<span style="float: right">{!! $this->getSortIcon('created_at') !!}</span> </th>
+                            <th scope="col" class="px-4 py-3" wire:click="setSortBy('updated_at')">Last update<span style="float: right">{!! $this->getSortIcon('updated_at') !!}</span> </th>
                             <th scope="col" class="px-4 py-3">
                                 <span class="sr-only">Actions</span>
                             </th>
